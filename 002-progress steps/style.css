@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --active-line: #3498db;
+  --not-active-line: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-color: #f6f7fb;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 300px;
+}
+
+.progress-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  z-index: -1;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background-color: var(--not-active-line);
+}
+
+.progress {
+  position: absolute;
+  top: 50%;
+  z-index: -1;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  background-color: var(--active-line);
+  transition: width 0.3s ease;
+}
+
+.step {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  color: #999999;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+  border: 3px solid var(--not-active-line);
+}
+
+.step.active {
+  border-color: var(--active-line);
+}
+
+.btn {
+  background-color: var(--active-line);
+  margin: 5px;
+  padding: 8px 30px;
+  display: inline-block;
+  border-radius: 10px;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn:active {
+  scale: 0.97;
+}
+
+.btn:disabled {
+  background-color: var(--not-active-line);
+}
